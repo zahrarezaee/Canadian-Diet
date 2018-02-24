@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        background-color:powderblue;
+    }
+    button{
+        color: red;
+    }
+    h1{
+        color: brown;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>
+        Please Input your age and gender.
+    </h1>
+    <br>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

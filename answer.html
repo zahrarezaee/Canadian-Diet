@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        background-color:powderblue;
+    }
+    button{
+        color: black;
+    }
+    h1{
+        color: green;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>
+        Suggested Diet
+    </h1>
+    {% for item in foodList%}
+        {% if item.0.fgid == "vf" %}
+            Vegetables and Fruit -
+        {% endif %}
+        {% if item.0.fgid == "mi" %}
+            Milk and Alternatives -
+        {% endif %}
+        {% if item.0.fgid == "gr" %}
+            Grains -
+        {% endif %}
+        {% if item.0.fgid == "me" %}
+            Meat and Alternatives -
+        {% endif %}
+
+        {{ item|length }} servings
+        <br>
+        {% for a in item %}
+             -{{ a.food }}({{ a.srvg_sz }})
+            <br>
+        {% endfor %}
+        <p>________________________________________________________________</p>
+        <br>
+    {% endfor %}
+    <button onclick="myFunction()">Next Option</button>
+<script>
+    function myFunction() {
+        location.reload()
+    }
+</script>
+</body>
+</html>
